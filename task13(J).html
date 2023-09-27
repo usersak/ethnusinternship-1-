@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    text-align: center;
+    color: blue;
+}
+
+.train-container {
+    position: relative;
+}
+
+.train {
+    width: 200px; /* Set the width of your train image */
+    position: absolute;
+    top: -150px; /* Adjust the positioning as needed */
+    left: -400px; /* Adjust the starting position to the left */
+    transition: left 5s linear;
+}
+
+button {
+    margin-top: 20px;
+}
+</style>
+<body>
+    <div class="train-container">
+        <img class="train" src="https://png.pngtree.com/element_origin_min_pic/17/03/09/ffa51c82719d035f8bfb00e5d0ef69c2.jpg" alt="Train">
+    </div>
+    <h1>Click the following buttons to handle animation</h1>
+    <button onclick="startAnimation()">Start</button>
+    <button onclick="stopAnimation()">Stop</button>
+</body>
+<script>
+    let animationInterval;
+
+function startAnimation() {
+    const train = document.querySelector('.train');
+    
+    // Clear any existing animation interval
+    clearInterval(animationInterval);
+    
+    // Set the final position of the train
+    const finalPosition = window.innerWidth - train.clientWidth;
+
+    // Apply the final position to the train's style
+    train.style.left = finalPosition + 'px';
+
+    // Create a new animation interval to loop the train animation
+    animationInterval = setInterval(() => {
+        train.style.left = '0';
+        setTimeout(() => {
+            train.style.left = finalPosition + 'px';
+        }, 100); // Delay before resetting
+    }, 5000); // Adjust the duration as needed
+}
+
+function stopAnimation() {
+    const train = document.querySelector('.train');
+    
+    // Clear the animation interval to stop the animation
+    clearInterval(animationInterval);
+    // Reset the train's position to the start
+    train.style.left = '0';
+}
+
+</script>
+</html>

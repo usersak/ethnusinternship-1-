@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fafafa;
+        }
+
+        .container {
+            max-width: 350px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #e1e1e1;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            width: 150px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+
+        .btn {
+            width: 100%;
+            background-color: #3897f0;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #3578e5;
+        }
+
+        .forgot-password {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .create-account {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .create-account a {
+            color: #3897f0;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">
+            <img src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png" alt="Instagram">
+        </div>
+        <form action="#">
+            <input type="text" placeholder="Username or Email">
+            <input type="password" placeholder="Password">
+            <button type="submit" class="btn">Log In</button>
+        </form>
+        <div class="forgot-password">
+            <a href="#">Forgot password?</a>
+        </div>
+        <div class="create-account">
+            <span>Don't have an account?</span> <a href="#">Sign up</a>
+        </div>
+    </div>
+</body>
+</html>

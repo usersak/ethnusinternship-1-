@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Registration Form</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+        }
+
+        .container {
+            width: 60%;
+            margin: 50px auto;
+            background: linear-gradient(to bottom, #f7a46c, #ff4aed);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            padding: 10px;
+        }
+
+        th, td {
+            border: none;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            width: 30%;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"],
+        input[type="number"],
+        input[type="tel"],
+        select,
+        input[type="checkbox"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background: #ff0000;
+            border: none;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background: #ff0000;
+        }
+
+        .center {
+            text-align: center;
+            color: blue;
+        }
+
+        .alnright {
+            text-align: right;
+        }
+
+        .error {
+            color: red;
+            float: right;
+            margin-top: -10px;
+        }
+
+        .error-visible {
+            visibility: visible;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="center">Registration Form</h1>
+        <form id="registrationForm" action="#" method="post">
+            <table>
+                <tr>
+                    <th>First Name:</th>
+                    <td><input type="text" name="first_name" required></td>
+                </tr>
+                <tr>
+                    <th>Last Name:</th>
+                    <td><input type="text" name="last_name" required></td>
+                </tr>
+                <tr>
+                    <th>Email:</th>
+                    <td><input type="email" name="email" required></td>
+                </tr>
+                <tr>
+                    <th>Password:</th>
+                    <td><input type="password" name="password" required></td>
+                </tr>
+                <tr>
+                    <th>Re-Enter Password:</th>
+                    <td><input type="password" name="re_password" required></td>
+                </tr>
+                <tr>
+                    <th>Gender:</th>
+                    <td>
+                        <input type="radio" name="gender" value="male" required> Male
+                        <input type="radio" name="gender" value="female" required> Female
+                    </td>
+                </tr>
+                <tr>
+                    <th>Age:</th>
+                    <td><input type="number" name="age" required></td>
+                </tr>
+                <tr>
+                    <th>Phone Number:</th>
+                    <td><input type="tel" name="phone" required></td>
+                </tr>
+                <tr>
+                    <th>Address:</th>
+                    <td><input type="text" name="address" required></td>
+                </tr>
+                <tr>
+                    <th>State:</th>
+                    <td><input type="text" name="state" required></td>
+                </tr>
+                <tr>
+                    <th>Country:</th>
+                    <td>
+                        <select name="country"required >
+                            <option value="choose">Choose Your Country</option>
+                            <option value="USA">USA</option>
+                            <option value="India">India</option>
+                            <!-- Add more country options as needed -->
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <th>Languages known:</th>
+                    <td>
+                        <input type="checkbox" name="languages[]" value="english"> English
+                        <input type="checkbox" name="languages[]" value="kannada"> Kannada
+                        <input type="checkbox" name="languages[]" value="hindi"> Hindi
+                        <input type="checkbox" name="languages[]" value="telugu"> Telugu
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5"><input type="checkbox" name="acknowledge" required>Hereby I declare all the given details are true</td>
+                </tr>
+                <tr>
+                    <td class="alnright" colspan="5"><p class="right">Log in to <a href="#">Ethnus</a> website</p></td>
+                </tr>
+            </table>
+            <p class="center"><input type="submit" value="Register"></p>
+        </form>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("registrationForm").addEventListener("submit", function (event) {
+                var isValid = true;
+                var fields = this.querySelectorAll("input[required], select[required]");
+                
+                fields.forEach(function (field) {
+                    if (!field.value.trim()) {
+                        isValid = false;
+                        var errorMessage = document.createElement("span");
+                        errorMessage.className = "error";
+                        errorMessage.innerText = "POOR";
+                        errorMessage.classList.add("error-visible"); // Add this line
+                        field.parentNode.appendChild(errorMessage);
+                    }
+                });
+
+                if (!isValid) {
+                    event.preventDefault();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
